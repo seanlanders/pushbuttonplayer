@@ -1,0 +1,1 @@
+A directory of code I found elsewhere, used to help me develop functions and classes, et c.
