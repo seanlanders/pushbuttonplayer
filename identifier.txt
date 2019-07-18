@@ -1,0 +1,6 @@
+identifier 2
+duration:200
+segments:5
+ASL:5
+onEnd:loop
+script:2.csv
