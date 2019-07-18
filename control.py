@@ -31,17 +31,25 @@ with open(((os.getcwd() + "/script/" + playthrough.script).strip('\r')), "r") as
 		script["filename"] = "file://" + os.getcwd() + "/media/" + row[0].strip('\r')
 print script["filename"]
 
+# create a VLC instance;
 vlcInstance = vlc.Instance('--input-repeat=-1','--no-video-title-show','--fullscreen')
 
+# create VLC player
 player = vlcInstance.media_player_new()
-clip = vlcInstance.media_new(script["filename"])
-player.set_fullscreen(True)
-player.set_media(clip)
 
+# create VLC clip
+clip = vlcInstance.media_new(script["filename"])
+#load clip
+#player.set_media(clip) 
+# set player fullscreen
+player.set_fullscreen(True)
+
+# button on GPIO 19; when button pushed, run the footage
 while True:
 	input_state = GPIO.input(19)
 	if input_state == False:
 		print "Button pressed"
+		player.set_media(clip)
 		player.play()
 		time.sleep(0.5)
 	else:
