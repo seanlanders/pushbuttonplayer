@@ -32,7 +32,7 @@ with open(((os.getcwd() + "/script/" + playthrough.script).strip('\r')), "r") as
 print script["filename"]
 
 # create a VLC instance;
-vlcInstance = vlc.Instance('--input-repeat=-1','--no-video-title-show','--fullscreen')
+vlcInstance = vlc.Instance('--input-repeat=65545','--no-video-title-show','--fullscreen')
 
 # create VLC player
 player = vlcInstance.media_player_new()
